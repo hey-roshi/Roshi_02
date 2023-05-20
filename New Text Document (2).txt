@@ -1,0 +1,115 @@
+public class ArrayStack <E> {
+	//ArrayList<>
+	private E[] arr;
+	private int top;
+	@SuppressWarnings("unchecked")
+	public ArrayStack(int capacity) {
+		arr = (E[]) new Object[capacity];
+		top = 0;
+		
+	}
+	
+	public ArrayStack() {
+		this(20);		
+	}
+	
+	
+	public boolean isEmpty() {
+		return top==0;
+	}
+	
+	public int size() { return top;}
+	
+	
+	public void push(E data) {
+		if (top == arr.length) {
+			 resize();
+			 }
+		arr[top++] = data;
+	}
+	
+	
+	 @SuppressWarnings("unchecked")
+	private void resize() {
+		  assert top == arr.length;
+		  Object[] a = new Object[2*top];
+		  System.arraycopy(arr, 0, a, 0, top);
+		  arr = (E[])a;
+		  }
+	 
+	 
+	 public E pop() {
+		 
+		 if (top == 0) {
+			 throw new java.util.EmptyStackException();
+		}
+		 
+		 E temp = arr[--top];
+		 arr[top] = null;
+		return temp;
+		 
+	 }
+	 
+	 
+	 public E peek() {
+		 if (top == 0) {
+			 throw new java.util.EmptyStackException();
+		}
+		
+		return arr[top-1];
+		 
+	 }
+	 
+	 
+	 public static void main(String[] args) {
+		ArrayStack<Integer> st = new ArrayStack<>(10);
+		st.push(10);
+		st.push(20);
+		st.push(30);
+		st.push(40);
+		st.push(50);
+		st.push(60);
+		st.push(70);
+		
+		System.out.println("size: "+st.size());
+
+//		System.out.println();
+//		System.out.println("peek: "+st.peek());
+//		System.out.println("pop: "+st.pop());
+//		System.out.println();
+//		System.out.println("peek: "+st.peek());
+//		System.out.println("pop: "+st.pop());
+//		
+//		System.out.println();
+//		System.out.println("peek: "+st.peek());
+//		System.out.println("pop: "+st.pop());
+//		
+//		System.out.println();
+//		System.out.println("peek: "+st.peek());
+//		System.out.println("pop: "+st.pop());
+//		
+//		System.out.println();
+//		System.out.println("peek: "+st.peek());
+//		System.out.println("pop: "+st.pop());
+//		
+//		System.out.println();
+//		System.out.println("peek: "+st.peek());
+//		System.out.println("pop: "+st.pop());
+//		
+//		System.out.println();
+//		System.out.println("peek: "+st.peek());
+//		System.out.println("pop: "+st.pop());
+		
+		int j = st.size();
+		
+		for (int i = 0; i < j ; i++) {
+			
+			System.out.println("pop: "+st.pop());
+		}
+		
+
+
+		
+	}
+		  
+}
