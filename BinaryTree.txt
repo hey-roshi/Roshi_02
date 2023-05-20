@@ -1,5 +1,3 @@
-package ds.tree.com;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -225,7 +223,7 @@ public class BinaryTree {
 		t.root = insert(t.root, 60);
 		t.root = insert(t.root, 70);
 		inOrder(t.root);
-		System.out.println();
+		System.out.println("\n");
 		System.out.println(lavel(t.root));
 
 		postOrder(t.root);
